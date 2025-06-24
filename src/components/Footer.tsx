@@ -1,14 +1,17 @@
 import React from 'react';
-import { Package, Home, Settings, Users, FileText, MapPin, Phone, Mail } from 'lucide-react';
+import { Home, Package, Settings, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import logo from '../assets/logo.png';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  setActiveSection: (section: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ setActiveSection }) => {
   const navigationLinks = [
-    { label: 'Inicio', icon: Home },
-    { label: 'Productos', icon: Package },
-    { label: 'Servicios', icon: Settings },
-    { label: 'Clientes', icon: Users },
-    { label: 'Documentación', icon: FileText },
-    { label: 'Ubicación / Contacto', icon: MapPin },
+    { label: 'Inicio', icon: Home, section: 'home' },
+    { label: 'Productos', icon: Package, section: 'productos' },
+    { label: 'Servicios', icon: Settings, section: 'servicios' },
+    { label: 'Ubicación / Contacto', icon: MapPin, section: 'contacto' },
   ];
 
   return (
@@ -16,7 +19,7 @@ const Footer: React.FC = () => {
       {/* Pantech Partnership Banner */}
       <div className="bg-gradient-to-r from-teal-600 to-teal-700 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <div className="flex items-center space-x-4">
               <div className="bg-white p-2 rounded-lg">
                 <Package className="h-8 w-8 text-teal-600" />
@@ -27,9 +30,6 @@ const Footer: React.FC = () => {
                 </p>
               </div>
             </div>
-            <button className="bg-white/20 hover:bg-white/30 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 border border-white/30">
-              MÁS INFORMACIÓN
-            </button>
           </div>
         </div>
       </div>
@@ -41,8 +41,8 @@ const Footer: React.FC = () => {
             {/* Company Information */}
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="bg-blue-700 text-white p-3 rounded-lg">
-                  <Package className="h-8 w-8" />
+                <div className="text-white p-3 rounded-lg">
+                  <img src={logo} alt="Logo All-Strapping" className="h-10 w-auto bg-white rounded-lg"/>
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold">All Strapping</h3>
@@ -67,7 +67,8 @@ const Footer: React.FC = () => {
                   return (
                     <button
                       key={index}
-                      className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200 p-2 rounded-lg hover:bg-gray-800"
+                      onClick={() => setActiveSection(link.section)}
+                      className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-200 p-2 rounded-lg hover:bg-gray-800 w-full text-left"
                     >
                       <Icon className="h-4 w-4" />
                       <span className="text-sm">{link.label}</span>
@@ -93,7 +94,7 @@ const Footer: React.FC = () => {
                   <Phone className="h-5 w-5 text-yellow-400" />
                   <div>
                     <p className="text-gray-300">Teléfono:</p>
-                    <p className="text-white font-semibold">(011) 4919-7233</p>
+                    <p className="text-white font-semibold">11 6012 2549</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -101,6 +102,14 @@ const Footer: React.FC = () => {
                   <div>
                     <p className="text-gray-300">Email:</p>
                     <p className="text-white font-semibold">info@allstrapping.com</p>
+                    <p className="text-white font-semibold">mariano.tedone@allstrapping.com</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Clock className="h-5 w-5 text-yellow-400" />
+                  <div>
+                    <p className="text-gray-300">Horarios:</p>
+                    <p className="text-white font-semibold">Lunes a Viernes: 8:00 - 17:00</p>
                   </div>
                 </div>
               </div>
@@ -114,10 +123,10 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              ALL-STRAPPING ® | Arte - Diseño & Desarrollo Web
+              ALL-STRAPPING ®
             </p>
             <p className="text-gray-500 text-sm mt-2 md:mt-0">
-              © 2024 All Strapping. Todos los derechos reservados.
+              © 2025 All Strapping. Todos los derechos reservados.
             </p>
           </div>
         </div>

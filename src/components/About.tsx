@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Wrench, Clock } from 'lucide-react';
+import { Award, Users, Wrench, Clock, Package, Zap, Layers } from 'lucide-react';
 
 const About: React.FC = () => {
   const features = [
@@ -23,6 +23,26 @@ const About: React.FC = () => {
       title: 'Atención Personalizada',
       description: 'Trato directo y personalizado con cada cliente',
     },
+    {
+      icon: Package,
+      title: 'Flejadoras semiautomáticas',
+      description: 'Máquinas eficientes para volúmenes medianos de producción',
+    },
+    {
+      icon: Zap,
+      title: 'Flejadoras automáticas estándar y especiales',
+      description: 'Soluciones automatizadas para alta producción',
+    },
+    {
+      icon: Wrench,
+      title: 'Zunchadoras manuales',
+      description: 'Herramientas manuales para trabajos específicos',
+    },
+    {
+      icon: Layers,
+      title: 'Consumibles',
+      description: 'Flejes, hebillas y accesorios de calidad',
+    },
   ];
 
   return (
@@ -30,7 +50,7 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Acerca de <span className="text-blue-700">Nosotros</span>
+            Acerca de <span className="text-sky-400">Nosotros</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Desde 2001 desarrollamos y comercializamos máquinas de calidad para el mercado del embalaje. 
@@ -47,7 +67,7 @@ const About: React.FC = () => {
                 key={index}
                 className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
               >
-                <div className="bg-gradient-to-br from-blue-700 to-blue-800 p-4 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-sky-400 to-sky-500 p-4 rounded-2xl inline-block mb-6 group-hover:scale-110 transition-transform duration-300">
                   <Icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
@@ -57,7 +77,7 @@ const About: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-blue-700 to-blue-800 rounded-2xl p-8 text-center">
+        <div className="mt-16 bg-gradient-to-r from-sky-400 to-sky-500 rounded-2xl p-8 text-center">
           <p className="text-xl text-white mb-6">
             Nos diferenciamos, fundamentalmente, por el trato directo y personalizado con el cliente 
             en la búsqueda constante de soluciones prácticas y eficaces para satisfacer sus necesidades; 

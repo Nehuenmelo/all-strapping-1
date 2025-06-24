@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Package, Home, Settings, Users, FileText, MapPin } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 interface HeaderProps {
   activeSection: string;
@@ -13,8 +14,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     { id: 'home', label: 'Inicio', icon: Home },
     { id: 'productos', label: 'Productos', icon: Package },
     { id: 'servicios', label: 'Servicios', icon: Settings },
-    { id: 'clientes', label: 'Clientes', icon: Users },
-    { id: 'documentacion', label: 'Documentación', icon: FileText },
     { id: 'contacto', label: 'Ubicación / Contacto', icon: MapPin },
   ];
 
@@ -28,12 +27,24 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
-            <div className="bg-blue-700 text-white p-2 rounded-lg shadow-lg">
-              <Package className="h-8 w-8" />
-            </div>
+            <button 
+              onClick={() => handleMenuClick('home')}
+              className="bg-white p-1 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-50"
+              aria-label="Ir al inicio"
+            >
+              <img 
+                src={logo} 
+                alt="Logo All-Strapping" 
+                className="h-12 w-auto object-contain"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = 'https://via.placeholder.com/40?text=LOGO';
+                }}
+              />
+            </button>
             <div>
-              <h1 className="text-2xl font-bold text-blue-700">ALL-STRAPPING</h1>
-              <p className="text-sm text-gray-600">Máquinas Flejadoras</p>
+              <p className="text-sm text-gray-600">Soluciones para el embalaje</p>
             </div>
           </div>
 
@@ -47,8 +58,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
                   onClick={() => handleMenuClick(item.id)}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'bg-blue-700 text-white shadow-lg'
-                      : 'text-gray-700 hover:text-blue-700 hover:bg-blue-50'
+                      ? 'bg-sky-400 text-white shadow-lg'
+                      : 'text-gray-700 hover:text-sky-400 hover:bg-sky-50'
                   }`}
                 >
                   <Icon className="h-5 w-5" />
@@ -61,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-blue-700 transition-colors"
+            className="lg:hidden p-2 text-gray-700 hover:text-sky-400 transition-colors"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -79,8 +90,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
                     onClick={() => handleMenuClick(item.id)}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
                       activeSection === item.id
-                        ? 'bg-blue-700 text-white shadow-lg'
-                        : 'text-gray-700 hover:text-blue-700 hover:bg-blue-50'
+                        ? 'bg-sky-400 text-white shadow-lg'
+                        : 'text-gray-700 hover:text-sky-400 hover:bg-sky-50'
                     }`}
                   >
                     <Icon className="h-5 w-5" />

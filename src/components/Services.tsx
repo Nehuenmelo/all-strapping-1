@@ -1,23 +1,23 @@
 import React from 'react';
 import { Settings, Phone, Wrench, Users, CheckCircle, Award } from 'lucide-react';
+import background from '../assets/IMG_0157.jpg';
+import photo1 from '../assets/IMG_0158.jpg';
+import photo2 from '../assets/IMG_0156.jpg';
 
 const Services: React.FC = () => {
   const technicalServices = [
-    { name: 'Strapex', category: 'Marca Premium' },
-    { name: 'Tajpack', category: 'Soluciones Industriales' },
-    { name: 'Oms', category: 'Equipos Especializados' },
-    { name: 'Legamatic', category: 'Tecnología Avanzada' },
-    { name: 'CykIop', category: 'Sistemas Automáticos' },
-    { name: 'Reisopack', category: 'Embalaje Profesional' },
-    { name: 'Sorsa', category: 'Maquinaria Industrial' },
+    { name: 'Automáticas/Semiautomaticas', category: 'Marca Premium' },
+    { name: 'Manuales', category: 'Soluciones Industriales' },
+    { name: 'Neumáticas', category: 'Equipos Especializados' },
+    { name: 'A batería', category: 'Tecnología Avanzada' }
   ];
 
   const serviceAreas = [
     {
       icon: Settings,
       title: 'Servicio Técnico Multimarca',
-      description: 'Soporte especializado para múltiples marcas y modelos',
-      services: technicalServices.slice(0, 4),
+      description: 'Soporte especializado para máquinas de múltiples marcas',
+      services: technicalServices,
     },
     {
       icon: Phone,
@@ -58,17 +58,20 @@ const Services: React.FC = () => {
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="relative bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 text-white overflow-hidden rounded-3xl mb-16">
-          <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/5723255/pexels-photo-5723255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover bg-center opacity-20"></div>
+        <div className="relative bg-gradient-to-br from-sky-400 via-sky-500 to-sky-600 text-white overflow-hidden rounded-3xl mb-16">
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-20"
+            style={{ backgroundImage: `url(${background})` }}
+          ></div>
           <div className="relative px-8 py-16 lg:px-16 lg:py-24">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Nuestros <span className="text-yellow-400">Servicios</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-blue-100 mb-8 max-w-2xl">
+            <p className="text-xl lg:text-2xl text-sky-100 mb-8 max-w-2xl">
               All Strapping, una empresa que piensa en su empresa.
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-lg">
-              <p className="text-lg text-blue-100">
+              <p className="text-lg text-sky-100">
                 Contamos con un servicio técnico y de post venta de reconocida experiencia.
               </p>
             </div>
@@ -84,14 +87,14 @@ const Services: React.FC = () => {
                 key={index}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
               >
-                <div className="bg-gradient-to-r from-blue-700 to-blue-800 p-6">
+                <div className="bg-gradient-to-r from-sky-400 to-sky-500 p-6">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="bg-yellow-400 p-3 rounded-xl">
                       <Icon className="h-8 w-8 text-gray-900" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-white">{area.title}</h3>
-                      <p className="text-blue-100">{area.description}</p>
+                      <p className="text-sky-100">{area.description}</p>
                     </div>
                   </div>
                 </div>
@@ -104,12 +107,9 @@ const Services: React.FC = () => {
                         className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors duration-200"
                       >
                         <div className="flex items-center space-x-3">
-                          <CheckCircle className="h-5 w-5 text-blue-700" />
+                          <CheckCircle className="h-5 w-5 text-sky-400" />
                           <span className="font-semibold text-gray-900">{service.name}</span>
                         </div>
-                        <span className="text-sm text-gray-500 bg-white px-3 py-1 rounded-full">
-                          {service.category}
-                        </span>
                       </div>
                     ))}
                   </div>
@@ -123,7 +123,7 @@ const Services: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="relative group overflow-hidden rounded-2xl shadow-lg">
             <img
-              src="https://images.pexels.com/photos/5723254/pexels-photo-5723254.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+              src={background}
               alt="Servicio técnico especializado"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -135,7 +135,7 @@ const Services: React.FC = () => {
           </div>
           <div className="relative group overflow-hidden rounded-2xl shadow-lg">
             <img
-              src="https://images.pexels.com/photos/5723255/pexels-photo-5723255.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+              src={photo2}
               alt="Instalación y configuración"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
             />
